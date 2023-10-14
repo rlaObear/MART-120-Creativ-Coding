@@ -1,0 +1,191 @@
+/*----------------------->
+\     PAGE-WIDE STYLE    \
+-------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+body {
+    margin: 0;
+    font-family: 'lato', sans-serif;
+    font-size: 1.25em;
+}
+    /*------------------------->
+    \    NAVIGATION STYLE     \
+    --------------------------*/
+.nav {
+    background-color: rgb(197, 150, 240);
+    text-align: center;
+}
+.nav a {
+    background-color: rgb(189, 245, 224);
+    text-align: center;
+    padding: 5px;
+}
+
+.navigation {
+    background-color: rgb(0, 255, 255);
+    width: 300px;
+    height: 100%;
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+.navigation a {
+    text-decoration: none;
+    color: mediumslateblue;
+}
+/* Logo and title */
+.site-info {
+    margin: 2em;
+    text-align: center;
+    font-size: 100%;
+}
+.logo {
+    background-color: rgb(203, 253, 105);
+    width: 150px;
+    height: 150px;
+
+    margin: 100%
+
+    border: 5px solid;
+    border-radius: 100%;
+    
+    line-height: 150px;
+    color: #444;
+}
+.logo:hover {
+    border-color: blue;
+}
+
+/* optional links to social accts */
+
+.site-links {
+    margin: 0 1em;
+
+}
+.site-links a {
+    display: block;
+    margin: 1em;
+}
+.site-links a :hover{
+    margin: 2.5em;
+}
+
+
+/*-------------------------->
+    MAIN CONTENT
+----------------------------*/
+.main {
+    background-color: darksalmon;
+    margin-left: 300px;
+    padding: 1em;
+
+    overflow: auto;   
+}
+.banner {
+    width: 100%;
+    height: auto;
+}
+.form {
+    background-color: whitesmoke;
+    width: auto%;
+    height: auto;
+    padding: 6em;
+
+    overflow: auto; 
+    
+}
+.charactergallery {
+    margin-left: 300px;
+    border: 2px solid;
+    float: center;
+    width: 354px;
+   
+}  
+.charactergallery: hover {
+    border: 3px solid #777;
+}
+  
+.charactergallery: img {
+    width: 355px;
+    height: auto%;
+}
+.artgallery {
+    margin-left: 300px;
+    border: 2px solid;
+    float: left;
+    width: 280px;
+   
+}  
+.artgallery: hover {
+    border: 3px solid #777;
+}
+  
+.artgallery: img {
+    width: 100%;
+    height: auto;
+} 
+.logogallery {
+    margin-left: 300px;
+    border: 2px solid;
+    float: left;
+    width: 354px;
+   
+}  
+.logogallery: hover {
+    border: 3px solid #777;
+}
+  
+.logogallery: img {
+    width: 100%;
+    height: auto;
+} 
+.desc {
+    background-color: aqua;
+    padding: 10px;
+    text-align: center;
+}
+div.gallery {
+    border: 1px solid #ccc;
+}
+  
+div.gallery:hover {
+    border: 1px solid #777;
+}
+  
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+  
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+  
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+  }
+@media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+  
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
