@@ -1,5 +1,32 @@
-div {
-    color: rgb(95, 251, 199);
-    background-color: rgb(223, 5, 197);
-  }
-  
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+body {
+    margin: 0;
+    font-family: 'lato', sans-serif;
+    font-size: 1.25em;
+}
+    /*------------------------->
+    \    NAVIGATION STYLE     \
+    --------------------------*/
+.nav {
+    background-color: rgb(197, 150, 240);
+    text-align: center;
+}
+.nav a {
+    background-color: rgb(189, 245, 224);
+    text-align: center;
+    padding: 5px;
+}
+
+.navigation {
+    background-color: rgb(0, 255, 255);
+    width: 300px;
+    height: 100%;
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+.navigation a {
+    text-decoration: none;
+    color: mediumslateblue;
