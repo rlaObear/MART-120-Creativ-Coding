@@ -10,7 +10,8 @@ body {
     --------------------------*/
 .nav {
     background-color: rgb(197, 150, 240);
-    text-align: center;
+    text-align: center
+    padding; 3px;
 }
 .nav a {
     background-color:  rgb(130, 6, 246);
