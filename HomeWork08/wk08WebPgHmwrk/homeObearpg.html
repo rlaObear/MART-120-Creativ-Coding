@@ -1,19 +1,15 @@
 <html>
-  <title>First JavaScript Page!</title>
+  <title>Variables</title>
   <head>
-      <script>
-          document.write("Hi there");
-          var favoriteNumber = 13;
-          var favoriteColor = "blue";
-          var myAge;
-          myAge = 79;
-          var red,green,blue;
-          red = "#FF0000";
-          green = "#00FF00";
-          blue = "#0000FF";
-      </script>
+  <script>
+      var favoriteColor = "blue";
+  </script>
   </head>
   <body>
-      This HTML page has JavaScript on it. What do you see?
+      <span id="myTag">This is my favorite text</span>
   </body>
+
+  <script>
+      document.getElementById("myTag").innerHTML = "Favorite Color " + favoriteColor;
+  </script>
 </html>
