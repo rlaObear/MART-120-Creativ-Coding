@@ -1,28 +1,27 @@
 <html>
-    <title>Forms</title>
+    <title>If statements</title>
     <head>
         <script>
-            function getData()
+            function printQuestion()
             {
-                var name = document.getElementById("txtName").value;
-                var phone = document.getElementById("txtPhone").value;
-
-                document.getElementById("finalResult").innerHTML = "name: " + name + " phone: " + phone;
+                document.getElementById("theQuestion").innerHTML = "What is 3+5?"; 
+            }
+            function checkAnswer()
+            {
+                var answer = document.getElementById("txtAnswer").value;
+                document.getElementById("finalResult").innerHTML = "Your answer is " + answer;
             }
         </script>
     </head>
-    <body>
+    <body onload="printQuestion();">
+        <div id="theQuestion"></div>
         <table>
             <tr>
-                <td>Name</td>
-                <td><input type="text" id="txtName"></td>
+                <td>Your answer</td>
+                <td><input type="text" id="txtAnswer"></td>
             </tr>
             <tr>
-                <td>Phone Number</td>
-                <td><input type="text" id="txtPhone"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+                <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
             </tr>
         </table>
         <div id="finalResult"></div>
