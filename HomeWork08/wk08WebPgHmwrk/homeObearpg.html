@@ -2,15 +2,24 @@
     <title>If statements</title>
     <head>
         <script>
-            function printQuestion()
+        function printQuestion()
+        {
+            document.getElementById("theQuestion").innerHTML = "What is 3+5?";
+        
+        }
+        function checkAnswer()
+        {
+            var answer = document.getElementById("txtAnswer").value;
+            if(answer == 8)
             {
-                document.getElementById("theQuestion").innerHTML = "What is 3+5?"; 
+                document.getElementById("finalResult").innerHTML = "Good job!";
             }
-            function checkAnswer()
+            else
             {
-                var answer = document.getElementById("txtAnswer").value;
-                document.getElementById("finalResult").innerHTML = "Your answer is " + answer;
+                document.getElementById("finalResult").innerHTML = "Not quite!";
             }
+        
+        }
         </script>
     </head>
     <body onload="printQuestion();">
