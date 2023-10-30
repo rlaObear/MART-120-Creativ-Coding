@@ -1,15 +1,21 @@
 <html>
-    <title>Functions</title>
+    <title>Forms</title>
     <head>
-    <script>
-        function displayFavoriteColor(color)
-        {
-            var favoriteColor = color;
-            document.getElementById("myTag").innerHTML = "My favorite color is " + favoriteColor;
-        }
-    </script>
+        
     </head>
-    <body onload="displayFavoriteColor('blue');">
-        <span id="myTag">This is my favorite text</span>
+    <body>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="txtName"></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="text" id="txtPhone"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+            </tr>
+        </table>
     </body>
-</html>
+ </html>
