@@ -1,15 +1,15 @@
 <html>
     <title>Functions</title>
     <head>
-        <script>
-            function displayFavoriteColor()
-            {
-                var favoriteColor = "blue";
-                document.getElementById("myTag").innerHTML = "Favorite Color " + favoriteColor;
-            }       
-        </script>
+    <script>
+        function displayFavoriteColor(color)
+        {
+            var favoriteColor = color;
+            document.getElementById("myTag").innerHTML = "My favorite color is " + favoriteColor;
+        }
+    </script>
     </head>
-    <body onload="displayFavoriteColor();">
+    <body onload="displayFavoriteColor('blue');">
         <span id="myTag">This is my favorite text</span>
     </body>
- </html>
+</html>
