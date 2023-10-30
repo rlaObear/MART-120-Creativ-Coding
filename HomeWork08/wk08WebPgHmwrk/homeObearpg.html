@@ -1,7 +1,15 @@
 <html>
     <title>Forms</title>
     <head>
-        
+        <script>
+            function getData()
+            {
+                var name = document.getElementById("txtName").value;
+                var phone = document.getElementById("txtPhone").value;
+
+                window.alert("name: " + name + " phone: " + phone);
+            }
+        </script>
     </head>
     <body>
         <table>
