@@ -18,7 +18,8 @@
       function getinformation()
       {
         var firstName = document.getelementById("fName").value;
-        //window.alert("Hi " + firstName)
+        var lastName = document.getelementById("lName").value;
+        window.alert("Hi " + firstName)
 
       }
     </script>
@@ -48,6 +49,7 @@
       <br>
       <form action="pageTwo.html" type="Post">
         First Name: <input type="text" id="fName">
+        <button id="mySubmit" onclick="getinformation();">Submit</button>
       <br>
         Last Name: <input type="text" id="lName">
       <br>
