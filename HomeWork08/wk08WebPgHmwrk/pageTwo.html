@@ -19,7 +19,7 @@
       {
         var firstName = document.getelementById("fName").value;
         var lastName = document.getelementById("lName").value;
-        window.alert("Hi " + firstName)
+        window.alert(");
 
       }
     </script>
@@ -53,6 +53,20 @@
         Last Name: <input type="text" id="lName">
       <br>
         <button id="mySubmit" onclick="getinformation();">Submit</button>
+        <table>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" id="txtName"></td>
+    </tr>
+    <tr>
+      <td>Phone Number</td>
+      <td><input type="text" id="txtPhone"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
+    </tr>
+  </table>
+  <div id="finalResult"></div>
       </form>
   </body>
 </html> 
