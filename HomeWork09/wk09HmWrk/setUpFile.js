@@ -1,7 +1,9 @@
-function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-}
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="sketch.js"></script>
+    <script src="p5.min.js"></script>
+  </head>
+  <body>
+  </body>
+</html>
