@@ -17,20 +17,24 @@
     <script>
       function getinformation()
       {
-        var firstName = document.getelementById("fName").value;
-        var lastName = document.getelementById("lName").value;
-        window.alert(");
-
+        var firstName = document.getElementById("fName").value;
+        if(firstName==""){
+        document.getElementById("fName").style.backgroundColor="red"
+      }
+        var lastName = document.getElementById("lName").value;
+        if(lastName==""){
+        document.getElementById("lName").style.backgroundColor="yellow"
+      }
       }
     </script>
-  </style>
 
+    </script>
     <style>
       span
       {
       background-color:
       aqua;
-      font: 1em sans-serif; color: fuchsia;
+      font: 1em sans-serif; color: rgb(199, 52, 199);
       }
     </style>
     <!--Site Navigation-->
@@ -55,26 +59,15 @@
   <body>
     <body style="background-color: rgb(234, 250, 252);">
       <br>
-      <form action="pageTwo.html" type="Post">
+
         First Name: <input type="text" id="fName">
       <br>
         Last Name: <input type="text" id="lName">
       <br>
         <button id="mySubmit" onclick="getinformation();">Submit</button>
         <table>
-    <tr>
-      <td>Name</td>
-      <td><input type="text" id="txtName"></td>
-    </tr>
-    <tr>
-      <td>Phone Number</td>
-      <td><input type="text" id="txtPhone"></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button id="btnSubmit" onClick="getData();">Submit</button></td>
-    </tr>
   </table>
   <div id="finalResult"></div>
-      </form>
+
   </body>
 </html> 
