@@ -1,5 +1,5 @@
-let legX = 190; // Initial x-coordinate for legs
-let eyebrowOffset = 0; // Initial vertical offset for eyebrows
+let legX = 190; 
+let eyebrowOffset = 0; 
 
 function setup() {
   createCanvas(400, 400);
@@ -11,15 +11,15 @@ function draw() {
   text("Hello my name is Obear!", 20, 30);
 
   // Hair
-  fill(173, 128, 79); // Light brown color for hair
+  fill(173, 128, 79); // Hair color light brown
   beginShape();
   vertex(190, 90);
-  bezierVertex(130, 250, 50, 50, 205, 260); // Adjusted for shoulder-length hair
+  bezierVertex(130, 250, 50, 50, 205, 260); 
   bezierVertex(250, 80, 310, 250, 210, 90);
   endShape();
 
   // Hair 2 back
-  fill(173, 128, 79); // Light Brown color for hair
+  fill(173, 128, 79); // Hair color light brown
   arc(198, 110, 60, 60, PI, TWO_PI, CHORD);
 
   // Head
@@ -27,7 +27,7 @@ function draw() {
   circle(198, 115, 50);
 
   // Hair 3 bangs
-  fill(173, 128, 79); // Light Brown color for hair
+  fill(173, 128, 79); // Hair color light brown
   arc(198, 99, 40, 40, PI, TWO_PI, CHORD);
 
   // Nose
@@ -50,7 +50,7 @@ function draw() {
   circle(210, 110, 8, 8);
 
   // Eyebrows
-  fill(173, 128, 79); // Match hair color
+  fill(173, 128, 79); // same color as hair light brown
   rect(185, 100 - eyebrowOffset, 10, 2);
   rect(205, 100 - eyebrowOffset, 10, 2);
 
