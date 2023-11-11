@@ -4,6 +4,8 @@ function setup() {
   
   function draw() {
     background(220);
+    textSize(32);
+    text ("Hello my name is Obear!", 20, 30);
     // Hair
     fill(173, 128, 79); // Light brown color for hair
     beginShape();
@@ -65,5 +67,7 @@ function setup() {
     fill(150, 200, 255); // Match body color
     ellipse(190, 289, 20, 60);
     ellipse(210, 289, 20, 60);
+    textSize(13);
+    text ("Created by Obear!",190, 330);
   
   }
