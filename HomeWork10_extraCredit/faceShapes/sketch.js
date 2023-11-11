@@ -1,16 +1,23 @@
-let legX = 190; 
-let eyebrowOffset = 0; 
+let legX = 190;
+let eyebrowOffset = 0;
+let bgColor; // Declare bgColor variable
 
 function setup() {
   createCanvas(400, 400);
-  bgColor = color(255, 0, 0); //background color (red)
+  bgColor = color(255, 0, 0); // Initial background color (red)
 }
 
 function draw() {
-  // Gradually change background color from red to pink
-  bgColor = lerpColor(bgColor, color(255, 182, 193), 0.02);
+  // Check if frameCount is a multiple of a certain number to reset the background color
+  if (frameCount % 300 === 0) {
+    bgColor = color(255, 0, 0); // Reset background color to red every 300 frames
+  } else {
+    // Gradually change background color from red to pink
+    bgColor = lerpColor(bgColor, color(255, 182, 193), 0.02);
+  }
+
   background(bgColor);
-  
+
   textSize(32);
   text("Hello my name is Obear!", 20, 30);
 
@@ -50,8 +57,8 @@ function draw() {
 
   // Pupils
   fill(0);
-  circle(190, 110, 8, 8);
-  circle(210, 110, 8, 8);
+  circle(190, 110, 8);
+  circle(210, 110, 8);
 
   // Eyebrows
   fill(173, 128, 79); // same color as hair light brown
@@ -85,7 +92,6 @@ function draw() {
   //matching body color
   ellipse(160, 200, 20, 60);
   ellipse(240, 200, 20, 60);
-
   // Legs
   fill(150, 200, 255);
   // Matching body color
@@ -102,5 +108,5 @@ function draw() {
   //speed of movement
 
   textSize(13);
-  text("Created by Obear!", 190, 330);
+  text("Created by Obear!", 190, 330)
 }
