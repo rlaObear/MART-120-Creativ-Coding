@@ -1,16 +1,17 @@
-var x = 50;
-var y = 50;
-var diameter = 25;
+var x = 0;
 function setup()
 {
-    createCanvas(800,600);
+    createCanvas(600,800);
 }
 function draw()
 {
-    background(0);
-    fill(24,200,29);
-    circle(x,y,diameter);
-    x+=10;
-    y+=3;
-    diameter+=8;
+    var i = 0;
+    while(i < 5)
+    {
+        textSize(28);
+        text(i,x,100);
+        x+=100;
+        i++;
+    }
+    x = 0;
 }
