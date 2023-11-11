@@ -1,25 +1,32 @@
 let legX = 190;
 let eyebrowOffset = 0;
 let bgColor; // Declare bgColor variable
+let textSizeMultiplier = 1; // Initial text size multiplier
+let textSizeIncrement = 0.1; // Increment for text size change
 
 function setup() {
-  createCanvas(400, 400);
-  bgColor = color(255, 0, 0); // Initial background color (red)
+  createCanvas(400, 400)// Background color (red)
+  bgColor = color(255, 0, 0); 
 }
 
 function draw() {
-  // Check if frameCount is a multiple of a certain number to reset the background color
+  //reset the background color
   if (frameCount % 300 === 0) {
-    bgColor = color(255, 0, 0); // Reset background color to red every 300 frames
+    bgColor = color(255, 0, 0); 
   } else {
-    // Gradually change background color from red to pink
+    //Change background color from red to pink
     bgColor = lerpColor(bgColor, color(255, 182, 193), 0.02);
   }
 
   background(bgColor);
+  textSizeMultiplier += textSizeIncrement;
 
-  textSize(32);
-  text("Hello my name is Obear!", 20, 30);
+  if (textSizeMultiplier > 5 || textSizeMultiplier < 0) {
+    textSizeIncrement *= -1;
+  }
+
+  textSize(9 + 5 * textSizeMultiplier);
+  text("Hello my name is Obear!", 40, 60);
 
   // Hair
   fill(173, 128, 79); // Hair color light brown
