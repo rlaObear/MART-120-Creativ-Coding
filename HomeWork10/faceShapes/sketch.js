@@ -67,7 +67,8 @@ function setup() {
     fill(150, 200, 255); // Match body color
     ellipse(190, 289, 20, 60);
     ellipse(210, 289, 20, 60);
-    fill(220);
+    
+    fill(120);
     textSize(size);
     size+= sizeDirection;
     count++;
@@ -76,8 +77,7 @@ function setup() {
         sizeDirection *=-1;
         count = 0;
     }
-    text ("Created by Obear!",190, 330);
-    textSize(13);
+    text("Michael Cassens",270,500 );
    
   
   }
