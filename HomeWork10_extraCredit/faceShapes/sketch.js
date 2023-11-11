@@ -3,10 +3,14 @@ let eyebrowOffset = 0;
 
 function setup() {
   createCanvas(400, 400);
+  bgColor = color(255, 0, 0); //background color (red)
 }
 
 function draw() {
-  background(220);
+  // Gradually change background color from red to pink
+  bgColor = lerpColor(bgColor, color(255, 182, 193), 0.02);
+  background(bgColor);
+  
   textSize(32);
   text("Hello my name is Obear!", 20, 30);
 
@@ -95,7 +99,7 @@ function draw() {
   legX = constrain(legX, 50, width -50);
   // eyebrowOffset bouncing effect
   eyebrowOffset = 2 * sin(frameCount * 0.05); 
-  //speed of movement here
+  //speed of movement
 
   textSize(13);
   text("Created by Obear!", 190, 330);
