@@ -67,7 +67,17 @@ function setup() {
     fill(150, 200, 255); // Match body color
     ellipse(190, 289, 20, 60);
     ellipse(210, 289, 20, 60);
-    textSize(13);
+    fill(220);
+    textSize(size);
+    size+= sizeDirection;
+    count++;
+    if(count > 5)
+    {
+        sizeDirection *=-1;
+        count = 0;
+    }
     text ("Created by Obear!",190, 330);
+    textSize(13);
+   
   
   }
