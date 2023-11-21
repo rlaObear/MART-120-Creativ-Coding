@@ -1,159 +1,117 @@
-// x and y for my character
-var characterX = 100;
-var characterY = 100;
-// define the key codes for each letter
-var w = 87; 
-var s = 83;
-var a = 65;
-var d = 68;
+let player;
+let obstacles = [];
+let exit;
 
-// x and y for a shape
-var shapeX = 30;
-var shapeY = 50;
-var shapeXSpeed;
-var shapeYSpeed;
-
-// create a shape when the mouse is clicked
-var mouseShapeX;
-var mouseShapeY;
-function setup()
-{
-    createCanvas(500, 600);
-    // get a random speed when the it first starts
-    shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    createCharacter(200,350);
-}
-
-function draw()
-{
-    background(120,45,78);
-    stroke(0);
-    fill(0);
-    
-    // call createBorders function
-    createBorders(10);
-
-    // exit message
-    textSize(16);
-    text("EXIT", width-50,height-50)
-
-    //createCharacter(200,350);
-    drawCharacter();
-    characterMovement();
-
-
-    // potential enemy
-    fill(13,145,14);
-    // draw the shape
-    circle(shapeX, shapeY, 10);
-
-     // get a random speed when the it first starts
-     shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-     shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-
-    // move the shape
-    shapeX += shapeXSpeed;
-    shapeY += shapeYSpeed;
-    // check to see if the shape has gone out of bounds
-    if(shapeX > width)
-    {
-        shapeX = 0;
-    }
-    if(shapeX < 0)
-    {
-        shapeX = width;
-    }
-    if(shapeY > height)
-    {
-        shapeY = 0;
-    }
-    if(shapeY < 0)
-    {
-        shapeY = height;
-    }
-
-    // check to see if the character has left the exit
-    if(characterX > width && characterY > width-50)
-    {
-        fill(0);
-        stroke(5);
-        textSize(26);
-        text("You Win!", width/2-50, height/2-50);
-    }
-
-    // create the shape based on the mouse click
-    fill(120,130,140);
-    circle(mouseShapeX, mouseShapeY, 25);
-}
-
-function characterMovement()
-{
-    // handle the keys
-    if(keyIsDown(w))
-    {
-        characterY -= 10;   
-    }
-    if(keyIsDown(s))
-    {
-        characterY += 10;   
-    }
-    if(keyIsDown(a))
-    {
-        characterX -= 10;   
-        console.log("movement: " + characterX);
-    }
-    if(keyIsDown(d))
-    {
-        characterX += 10;   
-    }
-}
-function createCharacter(x,y)
-{
-    characterX = x;
-    characterY = y;
-    console.log(characterX);
-    //character
-    
-   // circle(characterX,characterY,25);
-}
-
-function drawCharacter()
-{
-    fill(23,40,123);
-    circle(characterX,characterY,25);
-}
-function createBorders(thickness)
-{
-    // top border
-    rect(0,0,width,thickness);
-    // left border
-    rect(0,0,thickness,height);
-    // bottom border
-    rect(0, height-thickness,width, thickness);
-    // right upper border
-    rect(width-thickness,0,thickness,height-50);
-}
-
-function mouseClicked()
-{
-    mouseShapeX = mouseX;
-    mouseShapeY = mouseY;
-}
-/*
-function keyPressed() {
-    if (keyCode === LEFT_ARROW) {
-        characterX -= 10;
-    } 
-    else if (keyCode === RIGHT_ARROW) {
-        characterX += 10;
-    }
-    else if (keyCode === UP_ARROW) {
-        characterY -= 10;
-    }
-    else if (keyCode === DOWN_ARROW) {
-        characterY += 10;
-    }
-
+function setup() {
+  createCanvas(800, 600);
+  player = new Player(width / 2, height / 2, 20, color(0, 255, 0));
+  exit = createVector(random(width), random(height));
+  for (let i = 0; i < 2; i++) {
+    obstacles.push(new Obstacle());
   }
-  */
+}
+
+function draw() {
+  background(220);
+
+  // Move and display player
+  player.move();
+  player.display();
+
+  // Check if player reached the exit
+  if (player.checkExit()) {
+    textSize(32);
+    fill(0, 255, 0);
+    text("You won!", width / 2 - 80, height / 2);
+  }
+
+  // Display exit
+  fill(255, 0, 0);
+  ellipse(exit.x, exit.y, 20, 20);
+
+  // Move and display obstacles
+  for (let obstacle of obstacles) {
+    obstacle.move();
+    obstacle.display();
+  }
+}
+
+function keyPressed() {
+  // Move player using arrow keys
+  if (keyCode === UP_ARROW) {
+    player.moveUp();
+  } else if (keyCode === DOWN_ARROW) {
+    player.moveDown();
+  } else if (keyCode === LEFT_ARROW) {
+    player.moveLeft();
+  } else if (keyCode === RIGHT_ARROW) {
+    player.moveRight();
+  }
+}
+
+function mousePressed() {
+  // Add a non-moving obstacle when the mouse is clicked
+  obstacles.push(new Obstacle(mouseX, mouseY, 30, color(255, 0, 0)));
+}
+
+class Player {
+  constructor(x, y, size, col) {
+    this.pos = createVector(x, y);
+    this.size = size;
+    this.col = col;
+  }
+
+  move() {
+    // Player movement logic using arrow keys
+  }
+
+  moveUp() {
+    this.pos.y -= 10;
+  }
+
+  moveDown() {
+    this.pos.y += 10;
+  }
+
+  moveLeft() {
+    this.pos.x -= 10;
+  }
+
+  moveRight() {
+    this.pos.x += 10;
+  }
+
+  display() {
+    fill(this.col);
+    ellipse(this.pos.x, this.pos.y, this.size, this.size);
+  }
+
+  checkExit() {
+    // Check if the player is inside the exit
+    let d = dist(this.pos.x, this.pos.y, exit.x, exit.y);
+    return d < this.size / 2 + 10;
+  }
+}
+
+class Obstacle {
+  constructor(x, y, size, col) {
+    this.pos = createVector(x || random(width), y || random(height));
+    this.size = size || random(20, 40);
+    this.col = col || color(random(255), random(255), random(255));
+    this.speed = createVector(random(3, 5), random(3, 5));
+  }
+
+  move() {
+    // Move obstacle randomly and wrap around if it goes off-screen
+    this.pos.add(this.speed);
+    if (this.pos.x > width) this.pos.x = 0;
+    if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y > height) this.pos.y = 0;
+    if (this.pos.y < 0) this.pos.y = height;
+  }
+
+  display() {
+    fill(this.col);
+    ellipse(this.pos.x, this.pos.y, this.size, this.size);
+  }
+}
