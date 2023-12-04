@@ -39,7 +39,7 @@ function setup() {
     // Get random speed when it first starts
     shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
     shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    createPlayer(200, 350);
+    createPlayer(100, 150);
 }
 
 function draw() {
@@ -50,7 +50,7 @@ function draw() {
     createBorders(10);
     // Escape message
     textSize(12);
-    text("Escape Here!!", width - 100, height - 20);
+    text("Save Yourself! Escape Here!!", width - 200, height - 20);
     // call drawPlayer function
     drawPlayer();
     playerMovement();
