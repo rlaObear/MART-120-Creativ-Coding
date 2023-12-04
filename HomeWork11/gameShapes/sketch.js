@@ -107,7 +107,7 @@ function draw() {
         villain2Y = height;
     }
 
-    // check to see if the character has left the exit
+    // check to see if the player has left the exit
     if(playerX > width && playerY > width-50)
     {
         fill(0);
@@ -116,7 +116,7 @@ function draw() {
         text("You Win!", width/2-50, height/2-50);
     }
 
-    // Create the shape based on the mouse click
+    // Create the shape when mouse clicked
     fill(120, 130, 140);
     circle(mouseShapeX, mouseShapeY, 25);
 }

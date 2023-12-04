@@ -8,21 +8,8 @@ var s = 83;
 var a = 65;
 var d = 68;
 
-// Variables for shape obstacles
-var obstacleX1 = 100;
-var obstacleY1 = 200;
-var obstacleSize1 = 20;
-var obstacleColor1 = [0, 255, 0];
-
-var obstacleX2 = 300;
-var obstacleY2 = 400;
-var obstacleSize2 = 30;
-var obstacleColor2 = [20, 255, 220];
-
-var obstacleX3 = 450;
-var obstacleY3 = 100;
-var obstacleSize3 = 25;
-var obstacleColor3 = [99, 9, 219];
+// Array to store shapeobstacles
+var obstacles = [];
 
 // x and y for shape
 var shapeX = 30;
@@ -36,19 +23,19 @@ var mouseShapeY;
 
 function setup() {
     createCanvas(600, 700);
-    // Get random speed when it first starts
+    createObstacles();
+     // Get random speed when it first starts
     shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
     shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
     createPlayer(200, 350);
 }
-
 function draw() {
     background(255, 255, 153);
     stroke(0);
     fill(0);
     // call createBorders function
     createBorders(10);
-    // Escape message
+     //Escape message
     textSize(12);
     text("Escape Here!!", width - 100, height - 20);
     // call drawPlayer function
@@ -58,18 +45,18 @@ function draw() {
     moveObstacles();
     // call drawObstacles function
     drawObstacles();
-    // check to see if the player has left the exit
-    if (playerX > width && playerY > width - 50) {
+    // check to see if the cplayer has left the exit
+    if(playerX > width && playerY > width-50)
+    {
         fill(0);
         stroke(5);
         textSize(26);
-        text("You Win!", width / 2 - 50, height / 2 - 50);
+        text("You Win!", width/2-50, height/2-50);
     }
     // create a shape when mouse clicked
     fill(160, 130, 240);
     circle(mouseShapeX, mouseShapeY, 25);
 }
-
 function playerMovement() {
     // W, S, A, and D key movements
     if (keyIsDown(w)) {
@@ -86,58 +73,44 @@ function playerMovement() {
         playerX += 10;
     }
 }
-
 function createPlayer(x, y) {
     playerX = x;
     playerY = y;
     console.log(playerX);
 }
-
 function drawPlayer() {
     fill(255, 23, 252);
     circle(playerX, playerY, 35);
 }
-
+function createObstacles() {
+    obstacles.push({ x: 100, y: 200, size: 20, color: [0, 255, 0] });
+    obstacles.push({ x: 300, y: 400, size: 30, color: [20, 255, 220] });
+    obstacles.push({ x: 450, y: 100, size: 25, color: [99, 9, 219] });
+}
 function moveObstacles() {
-    obstacleX1 += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    obstacleY1 += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    obstacleX2 += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    obstacleY2 += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    obstacleX3 += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    obstacleY3 += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-
-    if (obstacleX1 > width) {
-        obstacleX1 = 0;
-    }
-    if (obstacleX2 > width) {
-        obstacleX2 = 0;
-    }
-    if (obstacleX3 > width) {
-        obstacleX3 = 0;
-    }
-
-    if (obstacleY1 > height) {
-        obstacleY1 = 0;
-    }
-    if (obstacleY2 > height) {
-        obstacleY2 = 0;
-    }
-    if (obstacleY3 > height) {
-        obstacleY3 = 0;
+    for (let i = 0; i < obstacles.length; i++) {
+        obstacles[i].x += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        obstacles[i].y += Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        if (obstacles[i].x > width) {
+            obstacles[i].x = 0;
+        }
+        if (obstacles[i].x < 0) {
+            obstacles[i].x = width;
+        }
+        if (obstacles[i].y > height) {
+            obstacles[i].y = 0;
+        }
+        if (obstacles[i].y < 0) {
+            obstacles[i].y = height;
+        }
     }
 }
-
 function drawObstacles() {
-    fill(obstacleColor1);
-    circle(obstacleX1, obstacleY1, obstacleSize1);
-
-    fill(obstacleColor2);
-    circle(obstacleX2, obstacleY2, obstacleSize2);
-
-    fill(obstacleColor3);
-    circle(obstacleX3, obstacleY3, obstacleSize3);
+    for (let i = 0; i < obstacles.length; i++) {
+        fill(obstacles[i].color);
+        circle(obstacles[i].x, obstacles[i].y, obstacles[i].size);
+    }
 }
-
 function createBorders(thickness) {
     // top border
     rect(0, 0, width, thickness);
@@ -148,14 +121,12 @@ function createBorders(thickness) {
     // right upper border
     rect(width - thickness, 0, thickness, height - 50);
 }
-
 function displayWinMessage() {
     fill(0);
     stroke(5);
     textSize(26);
     text("You Win!", width / 2 - 50, height / 2 - 50);
 }
-
 function mouseClicked() {
     mouseShapeX = mouseX;
     mouseShapeY = mouseY;
