@@ -1,4 +1,4 @@
-// Starting location of player circle
+// x and y for player
 var playerX = 90;
 var playerY = 90;
 
@@ -8,21 +8,18 @@ var s = 83;
 var a = 65;
 var d = 68;
 
-// Starting locations of villains
+// x and y for villains
 var villainX = 30;
 var villainY = 50;
 var villainXSpeed;
 var villainYSpeed;
-
 var villain2X = 100;
 var villain2Y = 200;
 var villain2XSpeed;
 var villain2YSpeed;
-
 // Shape created when mouse is clicked.
 var mouseShapeX;
 var mouseShapeY;
-
 function setup() {
     createCanvas(600, 700);
     // Get random speeds when it first starts for both villains
@@ -32,7 +29,6 @@ function setup() {
     villain2XSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
     villain2YSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
 }
-
 function draw() {
     // Borders
     background(255, 255, 153);
@@ -46,11 +42,9 @@ function draw() {
     rect(0, height-10,width, 10);
     // right upper border
     rect(width-10,0,10,height-50);
-
     // Escape message
     textSize(14);
     text("Escape Here!", width - 100, height - 30);
-
     // Player shape and color
     fill(255, 23, 252);
     circle(playerX, playerY, 35);
