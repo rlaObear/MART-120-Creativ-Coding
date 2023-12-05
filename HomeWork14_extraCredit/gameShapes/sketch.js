@@ -16,16 +16,13 @@ var diameters = [];
 var obstacleXSpeeds = [];
 var obstacleYSpeeds = [];
 
-// obstacle created when mouse is clicked
-var mouseobstacleX;
-var mouseobstacleY;
-
 // Control the number of obstacles
 var numObstacles = 5;
 
 function setup() {
     createCanvas(500, 600);
-    // get a random speed when it first starts
+    createPlayer(200, 350);
+    // Initialize obstacles directly
     for (var i = 0; i < numObstacles; i++) {
         obstacleXSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
         obstacleYSpeeds[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
@@ -33,8 +30,6 @@ function setup() {
         obstacleYs[i] = getRandomNumber(600);
         diameters[i] = getRandomNumber(30);
     }
-
-    createPlayer(200, 350);
 }
 
 function draw() {
@@ -52,10 +47,13 @@ function draw() {
     // call drawPlayer function
     drawPlayer();
     playerMovement();
+
     // call moveObstacles function
     moveObstacles();
+
     // call drawObstacles function
     drawObstacles();
+
     // check to see if the player has left the exit
     if (playerX > width && playerY > width - 50) {
         fill(0);
@@ -63,9 +61,6 @@ function draw() {
         textSize(26);
         text("You Win!", width / 2 - 50, height / 2 - 50);
     }
-    // create an obstacle when mouse clicked
-    fill(160, 130, 240);
-    circle(mouseobstacleX, mouseobstacleY, 25);
 }
 
 function playerMovement() {
@@ -78,7 +73,6 @@ function playerMovement() {
     }
     if (keyIsDown(a)) {
         playerX -= 10;
-        console.log("movement: " + playerX);
     }
     if (keyIsDown(d)) {
         playerX += 10;
@@ -96,9 +90,9 @@ function drawPlayer() {
 }
 
 function moveObstacles() {
-    for (var i = 0; i < numObstacles; i++) {
-        obstacleXs[i] += randomSpeed();
-        obstacleYs[i] += randomSpeed();
+    for (var i = 0; i < obstacleXs.length; i++) {
+        obstacleXs[i] += obstacleXSpeeds[i];
+        obstacleYs[i] += obstacleYSpeeds[i];
         handleObstacleBounds(i);
     }
 }
@@ -119,8 +113,8 @@ function handleObstacleBounds(index) {
 }
 
 function drawObstacles() {
-    for (var i = 0; i < numObstacles; i++) {
-        fill(0, 255, 0); // Change color as needed
+    for (var i = 0; i < obstacleXs.length; i++) {
+        fill(0, 255, 0); // Green color for existing obstacles
         circle(obstacleXs[i], obstacleYs[i], diameters[i]);
     }
 }
@@ -137,8 +131,12 @@ function createBorders(thickness) {
 }
 
 function mouseClicked() {
-    mouseobstacleX = mouseX;
-    mouseobstacleY = mouseY;
+    // Add new obstacle at the mouse click position
+    obstacleXs.push(mouseX);
+    obstacleYs.push(mouseY);
+    diameters.push(getRandomNumber(30));
+    obstacleXSpeeds.push(randomSpeed());
+    obstacleYSpeeds.push(randomSpeed());
 }
 
 function randomSpeed() {
