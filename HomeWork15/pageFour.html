@@ -25,67 +25,18 @@
      <a href="pageOne.html"><span>Page One</span></a>
      <a href="pageTwo.html"><span>Page Two</span></a>
      <a href="pageThree.html"><span>Page Three</span></a>
-     <a href="pageFour.html"><span>Page Three</span></a>
+     <a href="pageFour.html"><span>Page Four</span></a>
     </div>
-    <br>
-    <h1>Obear's Webpage Math Game</h1>
-    <html>
-<head>
-    <script>
-    var actualAnswer;
-    var number1;
-    var number2;
-    function printQuestion() 
-    {
-     number1 = Math.floor(Math.random() * 10);
-     number2 = Math.floor(Math.random() * 10);
-     actualAnswer = number1 + number2;
-     document.getElementById("theQuestion").innerHTML = "What is " + number1 + "+" + number2 + "?";
-    }
-    function checkAnswer() 
-    {
-      var answer = document.getElementById("txtAnswer").value;
-      if (answer == actualAnswer)
-      {
-        document.getElementById("finalResult").innerHTML = "Good job!";
-      } else {
-        document.getElementById("finalResult").innerHTML = "Try Again!";
-       }
-    }
-      function runGame() 
-    {
-     for (var i = 1; i < 6; i++)
-     {
-        document.getElementById("message").innerHTML += "<h" + i + "></p>";
-      }
-      printQuestion();
-    }
-      runGame();
-    </script>
-</head>
-<body onload="runGame();">
-  <table>
-    <tr>
-      <td colspan="2">
-        <div id="message"></div>
-      </td>
-    </tr>
-    <tr>
-
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div id="theQuestion"></div>
-      </td>
-    </tr>
-    <tr>
-      <td>Your answer</td>
-      <td><input type="text" id="txtAnswer"></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button id="btnSubmit" onClick="checkAnswer();">Submit</button></td>
-    </tr>
-  </table>
-  <div id="finalResult"></div>
-</body>
+    <body style="background-color: rgb(250, 246, 250);">
+      <h2><span>My work in Coding I this Term.</span></h2>
+      <br>
+      <img src="images/Amelia1.jpg"height='300' width='125'/>
+      <p>This term has been a whirlwind for me I feel that I have learned so much.</p>
+        <p>The above information is from the following website.</p>
+          <a href="pageOne.html">"https://charactercommunity.fandom.com/wiki/Amelia_Bedelia"</a>
+          <br>
+      <br>
+   
+      <br>
+    </body>
 </html>
