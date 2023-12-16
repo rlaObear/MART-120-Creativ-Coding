@@ -1,0 +1,19 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+body {
+    margin: 100;
+    font-family: 'lato', sans-serif;
+    font-size: 1.25em;
+}
+    /*------------------------->
+    \    NAVIGATION STYLE     \
+    --------------------------*/
+.nav {
+    background-color: rgb(197, 150, 240);
+    text-align: center
+}
+.nav a {
+    background-color:  rgb(130, 6, 246);
+    text-align: center;
+    padding: 2px;
+}

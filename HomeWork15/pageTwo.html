@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <meta charset="UTF-8">
+  <meta name="discription">
+  <meta name="author" content="Rhonda Aubert">
+  <meta name="viewpoint" content="width=device-width, intial-scale=0.1">
+  <title>Creative Coding Website</title>
+  <head>
+<!--External link Boot Strap-->
+    <link 
+    rel="style" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>External Style Sheet</title>
+    <link rel="style" type="text/css" href="style.css">
+    <script>
+      function getinformation()
+      {
+        var firstName = document.getElementById("fName").value;
+        if(firstName==""){
+        document.getElementById("fName").style.backgroundColor="red"
+      }
+        var lastName = document.getElementById("lName").value;
+        if(lastName==""){
+        document.getElementById("lName").style.backgroundColor="yellow"
+      }
+      }
+    </script>
+
+    </script>
+    <style>
+      span
+      {
+      background-color:
+      aqua;
+      font: 1em sans-serif; color: rgb(199, 52, 199);
+      }
+    </style>
+    <!--Site Navigation-->
+     <title>Page Buttons</title>
+    <div class="nav">
+      <a href="homeObearpg.html"><span>Home Page</span></a>
+      <a href="pageOne.html"><span>Page One</span></a>
+      <a href="pageTwo.html"><span>Page Two</span></a>
+      <a href="pageThree.html"><span>Page Three</span></a>
+      <a href="pageFour.html"><span>Page Three</span></a>
+    </div>
+    <br>
+    <script>
+    function getData() {
+      var name = document.getElementById("txtName").value;
+      var phone = document.getElementById("txtPhone").value;
+      // get the new field value
+      // print out the new field's value     document.getElementById("finalResult").innerHTML = "name: " + name + " phone: " + phone;
+    }
+  </script>
+    <h1>Obear's Webpage</h1>
+  </head>
+  <body>
+    <body style="background-color: rgb(234, 250, 252);">
+      <br>
+
+        First Name: <input type="text" id="fName">
+      <br>
+        Last Name: <input type="text" id="lName">
+      <br>
+        <button id="mySubmit" onclick="getinformation();">Submit</button>
+        <table>
+  </table>
+  <div id="finalResult"></div>
+
+  </body>
+</html> 
